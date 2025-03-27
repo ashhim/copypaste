@@ -146,7 +146,7 @@
     </div>
     
     <div class="code-box">
-        <span id="code21">select b,accno,cust_name,damount from bank_customer b join deposit d on b.accno=d.accno where b.accno not in (select accno from loan);</span> 
+        <span id="code21">select b.accno,cust_name,damount from bank_customer b join deposit d on b.accno=d.accno where b.accno not in (select accno from loan);</span> 
         <button class="copy-button" onclick="copyText(this, 'code21')">Copy</button> 
     </div>
     
