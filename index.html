@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Buttons</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .btn {
+            width: 300px;
+            height: 50px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .hover-content {
+            display: none;
+            text-align: left;
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            width: 400px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button class="btn" id="btn1">1</button>
+        <button class="btn" id="btn2">2</button>
+        <button class="btn" id="btn3">3</button>
+        <button class="btn" id="btn4">4</button>
+        <button class="btn" id="btn5">5</button>
+    </div>
+    
+    <div class="hover-content" id="hoverContent1" onclick="location.href='button1.html'">
+        <p><strong>1. Create a table customer (cust_no varchar (5), cust_name varchar (15), age number, phone varchar (10))
+        </strong></p>
+        <hr>
+        <p><strong>a)</strong> Insert 5 records and display it</p>
+        <p><strong>b)</strong> Add new field d_birth with date datatype</p>
+        <p><strong>c)</strong> Create another table cust_phone with fields cust_name and phone from customer table</p>
+        <p><strong>d)</strong> Remove the field age</p>
+        <p><strong>e)</strong> Change the size of the cust_name to 25</p>
+        <p><strong>f)</strong> Delete all the records from the table</p>
+        <p><strong>g)</strong> Rename the table customer to cust</p>
+        <p><strong>h)</strong> Drop the table</p>
+    </div>
+    
+    <div class="hover-content" id="hoverContent2" onclick="location.href='button2.html'">
+        <p><strong>2. Create a table sale_man (salesman_no primary key, s_name not null, place,phone unique)</strong></p>
+        <hr>
+        <p><strong>Create table sales_order (order_no primary key<br>order_date not null<br>salesman_no foreign key references salesman_no in sales_man<br>del_type values should be either P or F (check constraints)<br>order_status values should be 'Inprocess', 'Fullfilled', 'Backorder', 'Cancelled' (check constraints))</strong></p>
+        <hr>
+        <p><strong>a)</strong> Insert few records in both tables</p>
+        <p><strong>b)</strong> Delete primary key from sales_man table</p>
+        <p><strong>c)</strong> Delete Foreign key and Check constraints from sales_order table</p>
+        <p><strong>d)</strong> Add primary key in sales_man using ALTER TABLE</p>
+        <p><strong>e)</strong> Add foreign key and CHECK constraints in sales order table using ALTER TABLE</p>
+    </div>
+    
+    <div class="hover-content" id="hoverContent3" onclick="location.href='button3.html'">
+        <p><strong>3. Create a table Hospital with the fields (doctorid,doctormame,department,qualification,experience). Write the queries to perform the following.</strong></p>
+        <hr>
+        <p><strong>a)</strong> Insert 5 records</p>
+        <p><strong>b)</strong> Display the details of Doctors</p>
+        <p><strong>c)</strong> Display the details of doctors who have the qualification 'MD'</p>
+        <p><strong>d)</strong> Display all doctors who have more than 5 years experience but do not have the qualification 'MD'</p>
+        <p><strong>e)</strong> Display the doctors in 'Skin' department</p>
+        <p><strong>f)</strong> Update the experience of doctor with doctorid='D003' to 5</p>
+        <p><strong>g)</strong> Delete the doctor with doctorID='D005'</p>
+    </div>
+    
+    <div class="hover-content" id="hoverContent4" onclick="location.href='button4.html'">
+        <p><strong>4. Create the following tables Bank_customer (accno primary key, cust_name, place) Deposit (accno foreign key, deposit_no, damount) Loan (accno foreign key loan_no, Lamount)<br>Write the following queries</strong></p>
+        <hr>
+        <p><strong>a)</strong> Display the details of the customers</p>
+        <p><strong>b)</strong> Display the customers along with deposit amount who have only deposit with the bank</p>
+        <p><strong>c)</strong> Display the customers along with loan amount who have only loan with the bank</p>
+        <p><strong>d)</strong> Display the customers they have both loan and deposit with the bank</p>
+        <p><strong>e)</strong> Display the customer who have neither a loan nor a deposit with the bank</p>
+    </div>
+    
+    <div class="hover-content" id="hoverContent5" onclick="location.href='button5.html'">
+        <p><strong>5. Create a table employee with fields (EmpID, EName, Salary, Department, and Age). Insert some records. Write SQL queries using aggregate functions and group by clause</strong></p>
+        <hr>
+        <p><strong>A.</strong> Display the total number of employees.</p>
+        <p><strong>B.</strong> Display the name and age of the oldest employee of each department.</p>
+        <p><strong>C.</strong> Display the average age of employees of each department.</p>
+        <p><strong>D.</strong> Display departments and the average salaries.</p>
+        <p><strong>E.</strong> Display the lowest salary in employee table.</p>
+        <p><strong>F.</strong> Display the number of employees working in purchase department.</p>
+        <p><strong>G.</strong> Display the highest salary in sales department.</p>
+        <p><strong>H.</strong> Display the difference between highest and lowest salary.</p>
+    </div>
+    
+    <script>
+        function addHoverEffect(buttonId, contentId) {
+            let button = document.getElementById(buttonId);
+            let content = document.getElementById(contentId);
+            
+            button.addEventListener("mouseenter", () => {
+                content.style.display = "block";
+            });
+            
+            button.addEventListener("mouseleave", () => {
+                content.style.display = "none";
+            });
+        }
+        
+        addHoverEffect("btn1", "hoverContent1");
+        addHoverEffect("btn2", "hoverContent2");
+        addHoverEffect("btn3", "hoverContent3");
+        addHoverEffect("btn4", "hoverContent4");
+        addHoverEffect("btn5", "hoverContent5");
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button 5 - SQL Operations</title>
+    <style>
+        .code-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .copy-button {
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            width: fit-content;
+        }
+    </style>
+</head>
+<body>
+    <p><strong>5. Create a table employee with fields (EmpID, EName, Salary, Department, and Age). Insert some records. Write SQL queries using aggregate functions and group by clause</strong></p>
+    <hr>
+    <p><strong>A.</strong> Display the total number of employees.</p>
+    <p><strong>B.</strong> Display the name and age of the oldest employee of each department.</p>
+    <p><strong>C.</strong> Display the average age of employees of each department.</p>
+    <p><strong>D.</strong> Display departments and the average salaries.</p>
+    <p><strong>E.</strong> Display the lowest salary in employee table.</p>
+    <p><strong>F.</strong> Display the number of employees working in purchase department.</p>
+    <p><strong>G.</strong> Display the highest salary in sales department.</p>
+    <p><strong>H.</strong> Display the difference between highest and lowest salary.</p>
+    
+    <div class="code-box">
+        <span id="code1">create table employee (empid int PRIMARY KEY,ename varchar(10),salary numeric,department varchar(20),age int);</span> 
+        <button class="copy-button" onclick="copyText(this, 'code1')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code2">insert into employee values (101,'Adam',20000,'Purchase',25),(102,'Lisa',15000,'Sales',45),(103,'Arun',18000,'Sales',34),(104,'Aysha',25000,'Purchase',25),(105,'Sheeja',30000,'Finance',36),(106,'Sagar',28000,'Finance'42);</span> 
+        <button class="copy-button" onclick="copyText(this, 'code2')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code3">select * from employee;</span> 
+        <button class="copy-button" onclick="copyText(this, 'code3')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code4">select count(empid)from employee;</span> 
+        <button class="copy-button" onclick="copyText(this, 'code4')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code5">select ename,department from employee where age in (select max(age) from employee group by department);</span> 
+        <button class="copy-button" onclick="copyText(this, 'code5')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code6">select department,avg(age)from employee group by department;</span> 
+        <button class="copy-button" onclick="copyText(this, 'code6')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code7">select department,avg(salary)from employee group by department;</span> 
+        <button class="copy-button" onclick="copyText(this, 'code7')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code8">select min(salary) as min_salary from employee;</span> 
+        <button class="copy-button" onclick="copyText(this, 'code8')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code9">select count(ename) from employee where department='Purchase';</span> 
+        <button class="copy-button" onclick="copyText(this, 'code9')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code10">select max(salary)from employee where department='Sales';</span> 
+        <button class="copy-button" onclick="copyText(this, 'code10')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code11">select max(salary)-min(salary) as sal_difference from employee;</span> 
+        <button class="copy-button" onclick="copyText(this, 'code11')">Copy</button> 
+    </div>
+    
+
+    
+    
+    <a href="index.html" class="back-button">Back to Home</a>
+    
+    <script>
+        function copyText(button, elementId) {
+            var text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                button.innerText = "Copied";
+                setTimeout(() => {
+                    button.innerText = "Copy";
+                }, 9000);
+            });
+        }
+    </script>
+</body>
+</html>

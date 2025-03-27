@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button 4 - SQL Operations</title>
+    <style>
+        .code-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .copy-button {
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            width: fit-content;
+        }
+    </style>
+</head>
+<body>
+    <p><strong>4. Create the following tables Bank_customer (accno primary key, cust_name, place) Deposit (accno foreign key, deposit_no, damount) Loan (accno foreign key loan_no, Lamount)<br>Write the following queries</strong></p>
+    <hr>
+    <p><strong>a)</strong> Display the details of the customers</p>
+    <p><strong>b)</strong> Display the customers along with deposit amount who have only deposit with the bank</p>
+    <p><strong>c)</strong> Display the customers along with loan amount who have only loan with the bank</p>
+    <p><strong>d)</strong> Display the customers they have both loan and deposit with the bank</p>
+    <p><strong>e)</strong> Display the customer who have neither a loan nor a deposit with the bank</p>
+    
+    <div class="code-box">
+        <span id="code1">create table Bank_customer (accno int primary key,cust_name varchar(25),place varchar(25));</span> 
+        <button class="copy-button" onclick="copyText(this, 'code1')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code2">create table Deposit (accno int references Bank_customer(accno),deposit_no int,damount numeric);</span> 
+        <button class="copy-button" onclick="copyText(this, 'code2')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code3">create table loan (accno int references bank_customer(accno),loan_no int,lamount numeric);</span> 
+        <button class="copy-button" onclick="copyText(this, 'code3')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code4">insert into bank_customer values (101,'Ravi','clt');</span> 
+        <button class="copy-button" onclick="copyText(this, 'code4')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code5">insert into bank_customer values (102,'Adam','tvm');</span> 
+        <button class="copy-button" onclick="copyText(this, 'code5')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code6">insert into bank_customer values (103,'Aysha','mlprm');</span> 
+        <button class="copy-button" onclick="copyText(this, 'code6')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code7">insert into bank_customer values (104,'Lisa','knr');</span> 
+        <button class="copy-button" onclick="copyText(this, 'code7')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code8">insert into bank_customer values (105,'Shaju','klm');</span> 
+        <button class="copy-button" onclick="copyText(this, 'code8')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code9">insert into bank_customer values (106,'Razeen','kch');</span> 
+        <button class="copy-button" onclick="copyText(this, 'code9')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code10">insert into bank_customer values (107,'Radha','tvm');</span> 
+        <button class="copy-button" onclick="copyText(this, 'code10')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code11">insert into bank_customer values (108,'jose','knr');</span> 
+        <button class="copy-button" onclick="copyText(this, 'code11')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code12">insert into deposit values (101,15,400000);</span> 
+        <button class="copy-button" onclick="copyText(this, 'code12')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code13">insert into deposit values (102,13,75000);</span> 
+        <button class="copy-button" onclick="copyText(this, 'code13')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code14">insert into deposit values (105,12,55000);</span> 
+        <button class="copy-button" onclick="copyText(this, 'code14')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code15">insert into deposit values (108,16,750000);</span> 
+        <button class="copy-button" onclick="copyText(this, 'code15')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code16">insert into loan values (103,4,500000);</span> 
+        <button class="copy-button" onclick="copyText(this, 'code16')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code17">insert into loan values (104,2,200000);</span> 
+        <button class="copy-button" onclick="copyText(this, 'code17')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code18">insert into loan values (106,6,300000);</span> 
+        <button class="copy-button" onclick="copyText(this, 'code18')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code19">insert into loan values (108,8,600000);</span> 
+        <button class="copy-button" onclick="copyText(this, 'code19')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code20">select * from bank_customer;</span> 
+        <button class="copy-button" onclick="copyText(this, 'code20')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code21">select b,accno,cust_name,damount from bank_customer b join deposit d on b.accno=d.accno where b.accno not in (select accno from loan);</span> 
+        <button class="copy-button" onclick="copyText(this, 'code21')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code22">select b,accno,cust_name,lamount from bank_customer b join loan l on b.accno=l.accno where b.accno not in (select accno from deposit);</span> 
+        <button class="copy-button" onclick="copyText(this, 'code22')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code23">select cust_name from bank_customer where accno in ((select accno from loan)intersect(select accno from deposit));</span> 
+        <button class="copy-button" onclick="copyText(this, 'code23')">Copy</button> 
+    </div>
+    
+    <div class="code-box">
+        <span id="code24">select cust_name from bank_customer where accno not in ((select accno from loan)union(select accno from deposit));</span> 
+        <button class="copy-button" onclick="copyText(this, 'code24')">Copy</button> 
+    </div>
+    
+    <a href="index.html" class="back-button">Back to Home</a>
+    
+    <script>
+        function copyText(button, elementId) {
+            var text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                button.innerText = "Copied";
+                setTimeout(() => {
+                    button.innerText = "Copy";
+                }, 9000);
+            });
+        }
+    </script>
+</body>
+</html>
