@@ -3,13 +3,16 @@
 <head>
     <title>Button 1 - SQL Operations</title>
     <style>
+        body {
+            background-color: black;
+        }
         .code-box {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: #f4f4f4;
+            background-color: #000000;
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #1b1b1b;
             margin: 10px 0;
             font-family: monospace;
             white-space: pre-wrap;
@@ -26,13 +29,16 @@
             display: block;
             margin-top: 20px;
             padding: 10px 15px;
-            background-color: #28a745;
+            background-color: #313131;
             color: white;
             border: none;
             border-radius: 5px;
             text-decoration: none;
             text-align: center;
             width: fit-content;
+        }
+        span,p {
+            color: #ffffff;
         }
     </style>
 </head>
@@ -49,108 +55,113 @@
     <p><strong>g)</strong> Rename the table customer to cust</p>
     <p><strong>h)</strong> Drop the table</p>
     
-    <div class="code-box">
-        <span id="code1">create table customer(cust_no varchar(5),cust_name varchar(15),age numeric,phone varchar(10));</span>
-        <button class="copy-button" onclick="copyText(this, 'code1')">Copy</button>
-    </div>
-    
-    <div class="code-box">
-        <span id="code2">\d customer;</span>
-        <button class="copy-button" onclick="copyText(this, 'code2')">Copy</button>
-    </div>
-    
-    <div class="code-box">
-        <span id="code3">insert into customer values (1,'Raju',23,7418529638);</span>
-        <button class="copy-button" onclick="copyText(this, 'code3')">Copy</button>
-    </div>
-    
-    <div class="code-box">
-        <span id="code4">insert into customer values (2,'Radha',1597538526);</span>
-        <button class="copy-button" onclick="copyText(this, 'code4')">Copy</button>
-    </div>
-    
-    <div class="code-box">
-        <span id="code5">insert into customer values (3,'Zara',23,7419874563);</span>
-        <button class="copy-button" onclick="copyText(this, 'code5')">Copy</button>
-    </div>
-    
-    <div class="code-box">
-        <span id="code6">insert into customer values (4,'Adam',25,7485963285);</span>
-        <button class="copy-button" onclick="copyText(this, 'code6')">Copy</button>
-    </div>
-    
-    <div class="code-box">
-        <span id="code7">insert into customer values (5,'John',22,7418529518);</span>
-        <button class="copy-button" onclick="copyText(this, 'code7')">Copy</button>
-    </div>
-    
-    <div class="code-box">
-        <span id="code8">select * from customer;</span>
-        <button class="copy-button" onclick="copyText(this, 'code8')">Copy</button>
-    </div>
-    
-    <div class="code-box">
-        <span id="code9">alter table customer add d_birth date;</span>
-        <button class="copy-button" onclick="copyText(this, 'code9')">Copy</button>
-    </div>
 
-    <div class="code-box">
-        <span id="code10">\d customer;</span>
-        <button class="copy-button" onclick="copyText(this, 'code10')">Copy</button>
-    </div>
-    
-    <div class="code-box">
-        <span id="code11">create table cust_phone as select cust_name,phone from customer;</span>
-        <button class="copy-button" onclick="copyText(this, 'code11')">Copy</button>
-    </div>
 
-    <div class="code-box">
-        <span id="code12">select * from cust_phone;</span>
-        <button class="copy-button" onclick="copyText(this, 'code12')">Copy</button>
+<div class="code-box" onclick="copyText(this)">
+    <span>create table customer(cust_no varchar(5),cust_name varchar(15),age numeric,phone varchar(10));</span>
     </div>
     
-    <div class="code-box">
-        <span id="code13">alter table customer drop age;</span>
-        <button class="copy-button" onclick="copyText(this, 'code13')">Copy</button>
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>\d customer;</span>
     </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into customer values (1,'Raju',23,7418529638);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into customer values (2,'Radha',1597538526);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into customer values (3,'Zara',23,7419874563);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into customer values (4,'Adam',25,7485963285);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into customer values (5,'John',22,7418529518);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select * from customer;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>alter table customer add d_birth date;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>\d customer;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>create table cust_phone as select cust_name,phone from customer;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select * from cust_phone;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>alter table customer drop age;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>ALTER TABLE customer ALTER COLUMN cust_name TYPE varchar(25);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>TRUNCATE customer;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>ALTER TABLE customer RENAME TO cust;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>\d cust;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>drop table cust;</span>
+    </div>
+    
+    
 
-    <div class="code-box">
-        <span id="code14">ALTER TABLE customer ALTER COLUMN cust_name TYPE varchar(25);</span>
-        <button class="copy-button" onclick="copyText(this, 'code14')">Copy</button>
-    </div>
-    
-    <div class="code-box">
-        <span id="code15">TRUNCATE customer;</span>
-        <button class="copy-button" onclick="copyText(this, 'code15')">Copy</button>
-    </div>
 
-    <div class="code-box">
-        <span id="code16">ALTER TABLE customer RENAME TO cust;</span>
-        <button class="copy-button" onclick="copyText(this, 'code16')">Copy</button>
-    </div>
-    
-    <div class="code-box">
-        <span id="code17">\d cust;</span>
-        <button class="copy-button" onclick="copyText(this, 'code17')">Copy</button>
-    </div>
-
-    <div class="code-box">
-        <span id="code18">drop table cust;</span>
-        <button class="copy-button" onclick="copyText(this, 'code18')">Copy</button>
-    </div>
-    
     <a href="index.html" class="back-button">Back to Home</a>
     
-    <script>
-        function copyText(button, elementId) {
-            var text = document.getElementById(elementId).innerText;
-            navigator.clipboard.writeText(text).then(() => {
-                button.innerText = "Copied";
-                setTimeout(() => {
-                    button.innerText = "Copy";
-                }, 9000);
-            });
-        }
-    </script>
+<script>
+    function copyText(box) {
+        let span = box.querySelector("span");
+        let text = span.innerText.replace("", ""); // Remove existing "Copied" if already added
+        navigator.clipboard.writeText(text).then(() => {
+            span.innerText = text + ""; // Add once
+            span.style.color = "#28a745"; // Optional: Change color
+        });
+    }
+</script>
+
+
 </body>
 </html>
